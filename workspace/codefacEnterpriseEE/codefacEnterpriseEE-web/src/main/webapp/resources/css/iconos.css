@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 6/02/2018, 04:32:25 PM
+    Author     : Carlos
+*/
+.guardar-icon {
+    background-image: url("#{facesContext.externalContext.request.contextPath}/resources/img/iconos/16/save-icon.png") !important;
+    margin-left: -10px;
+    margin-top: -20px;
+}
+
+.editar-icon {
+    background-image: url("#{facesContext.externalContext.request.contextPath}/resources/img/iconos/16/edit-icon.png") !important;
+}
+
+.ui-ribbon .ui-colorpicker .ui-button {
+    height: 24px;
+}
+
+.ui-icon.ui-ribbonicon-new {
+    background-image: url("#{facesContext.externalContext.request.contextPath}/resources/img/iconos/normal/nuevo-icono.png") !important;
+}
+
+.ui-icon.ui-ribbonicon-save {
+    background-image: url("#{facesContext.externalContext.request.contextPath}/resources/img/iconos/normal/grabar-icon.png") !important;
+}
+
+.ui-icon.ui-ribbonicon-edit {
+    background-image: url("#{facesContext.externalContext.request.contextPath}/resources/img/iconos/normal/edit-icon.png") !important;
+}
+
+.ui-icon.ui-ribbonicon-paste {
+    background-image: url("#{resource['demo/images/icon/paste.png']}");
+}
+
+.ui-icon.ui-ribbonicon-cut {
+    background-image: url("#{facesContext.externalContext.request.contextPath}/resources/img/iconos/normal/delete-icon.png") !important;
+}
+
+.ui-icon.ui-ribbonicon-print {
+    background-image: url("#{facesContext.externalContext.request.contextPath}/resources/img/iconos/normal/print-icon.png");
+}
+
+.ui-icon.ui-ribbonicon-zoomin {
+    background-image: url("#{facesContext.externalContext.request.contextPath}/resources/img/iconos/normal/home.png");
+}
+
+.ui-icon.ui-ribbonicon-zoomout {
+    background-image: url("#{facesContext.externalContext.request.contextPath}/resources/img/iconos/normal/help_icon.png");
+}
+
+.ui-ribbon-group .ui-ribbon-group-content
+{
+    height: 4.5em !important;
+    text-align: center;    
+}
+
+
+
+

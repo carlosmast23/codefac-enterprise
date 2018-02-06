@@ -1,14 +1,157 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="iconos.css"/>
     </h:head>
     <h:body>
-        Hello from Facelets
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <h:form>
+
+            <p:layoutUnit position="north">
+                <p:ribbon>
+                    <p:tab title="Acciones" >
+
+
+                        <p:ribbonGroup label="Opciones">
+                            <p:commandButton value="Nuevo" icon="ui-ribbonicon-new" styleClass="ui-ribbon-bigbutton" type="button" />
+                            <p:commandButton value="Guardar" icon="ui-ribbonicon-save" styleClass="ui-ribbon-bigbutton" type="button"/>
+                            <p:commandButton value="Editar" icon="ui-ribbonicon-edit" styleClass="ui-ribbon-bigbutton" type="button"/>
+                            <p:commandButton value="Eliminar" icon="ui-ribbonicon-cut" styleClass="ui-ribbon-bigbutton" type="button"/>
+
+
+                        </p:ribbonGroup>
+
+                        <p:ribbonGroup label="Otros">
+                            <p:commandButton value="Home" icon="ui-ribbonicon-zoomin" styleClass="ui-ribbon-bigbutton" type="button"/>                            
+                            <p:commandButton value="Imprimir" icon="ui-ribbonicon-print" styleClass="ui-ribbon-bigbutton" type="button"/>                            
+                        </p:ribbonGroup>
+
+                        <p:ribbonGroup label="Ayuda">
+                            <p:commandButton value="Ayuda" icon="ui-ribbonicon-zoomout" styleClass="ui-ribbon-bigbutton" type="button"/>                            
+                        </p:ribbonGroup>
+
+                        <p:ribbonGroup label="Nombre Ventana"  >
+                            <h:outputLabel value="PRINCIPAL" style="font-size: 40px;color: lightgray" />
+                        </p:ribbonGroup>
+
+
+
+
+                    </p:tab>
+
+                    <p:tab title="Reportes">
+                        <p:ribbonGroup label="Zoom">
+                            <p:commandButton value="In" icon="ui-ribbonicon-zoomin" styleClass="ui-ribbon-bigbutton" type="button" />
+                            <p:commandButton value="Out" icon="ui-ribbonicon-zoomout" styleClass="ui-ribbon-bigbutton" type="button"/>   
+                        </p:ribbonGroup>
+
+
+                        <p:ribbonGroup label="Fonts" style="width:220px">
+                            <p:selectOneMenu appendTo="@this">
+                                <f:selectItem itemLabel="Arial" itemValue="0" />
+                                <f:selectItem itemLabel="Comis Sans" itemValue="1" />
+                                <f:selectItem itemLabel="Helvetica" itemValue="2" />
+                                <f:selectItem itemLabel="Times New Roman" itemValue="3" />
+                                <f:selectItem itemLabel="Verdana" itemValue="4" />
+                            </p:selectOneMenu>
+
+                            <p:selectOneMenu appendTo="@this">
+                                <f:selectItem itemLabel="10" itemValue="10" />
+                                <f:selectItem itemLabel="12" itemValue="12" />
+                                <f:selectItem itemLabel="14" itemValue="14" />
+                                <f:selectItem itemLabel="18" itemValue="18" />
+                                <f:selectItem itemLabel="24" itemValue="24" />
+                                <f:selectItem itemLabel="36" itemValue="36" />
+                                <f:selectItem itemLabel="72" itemValue="72" />
+                            </p:selectOneMenu>
+
+                            <p:selectManyButton>
+                                <f:selectItem itemLabel="b" itemValue="b" />
+                                <f:selectItem itemLabel="u" itemValue="u" />
+                                <f:selectItem itemLabel="i" itemValue="i" />
+                            </p:selectManyButton>
+
+                            <p:colorPicker />  
+                        </p:ribbonGroup>
+                    </p:tab>
+                </p:ribbon>
+            </p:layoutUnit>
+
+            <p:layout fullPage="true" style="height: 80%">
+                <p:layoutUnit position="west" resizable="true">
+                    <p:panelMenu >
+                        <p:submenu label="Inventario">
+                            <p:menuitem value="Propuctos" actionListener="#{menuView.save}" icon="ui-icon-disk" />
+                            <p:menuitem value="Clientes" actionListener="#{menuView.update}"  icon="ui-icon-arrowrefresh-1-w" />
+                        </p:submenu>
+                        <p:submenu label="Facturación">
+                            <p:menuitem value="Venta" actionListener="#{menuView.delete}"  ajax="false" icon="ui-icon-close"/>
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="Contabilidad" >
+                            <p:submenu label="Links" icon="ui-icon-extlink">
+                                <p:submenu label="PrimeFaces" icon="ui-icon-heart">
+                                    <p:menuitem value="Inventario" url="http://www.primefaces.org" icon="ui-icon-home" />
+                                    <p:menuitem value="fACTURAC" url="http://www.primefaces.org/documentation" icon="ui-icon-document" />
+                                    <p:menuitem value="" url="http://www.primefaces.org/downloads" icon="ui-icon-arrowthick-1-s" />
+                                    <p:menuitem value="Support" url="http://www.primefaces.org/support" icon="ui-icon-wrench" />
+                                </p:submenu>
+                            </p:submenu>
+                            <p:menuitem value="Mobile" icon="ui-icon-signal" />
+                        </p:submenu>
+                    </p:panelMenu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center" style="background-color: white">
+                    <div style="text-align: center" >
+                        <h:graphicImage  value="/resources/img/fondos/fondoGeneral.png" height="470px"  />
+                    </div>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center" style="background-color: white">
+                    <div style="text-align: center" >
+                        <h:graphicImage  value="/resources/img/fondos/fondoGeneral.png" height="470px"  />
+                    </div>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="east" size="200" resizable="true" closable="true" collapsible="true" effect="drop">
+                    <p:tabView>
+                        <p:tab title="Ayuda">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                                <h:outputText
+                                    value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding. 
+                                    " />
+                            </h:panelGrid>
+                        </p:tab>
+                        <p:tab title="Monitor">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:graphicImage name="demo/images/godfather/godfather2.jpg" />
+                                <h:outputText value="Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, The_Godfather, parallels the young Vito Corleone's rise with his son Michael's spiritual fall, deepening The_Godfather's depiction of the dark side of the American dream. 
+                                              " />
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:tabView>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south">
+                    <div style="text-align: center;font-size: 14px">
+                        <!-- <h:graphicImage  value="/resources/img/iconos/letraCodefac.png" /> !-->
+                        Codefact Enterprise - Todos los derechos reservados por @Codesoft  2018
+                    </div>
+                </p:layoutUnit>
+            </p:layout>
+
+
+            <p:growl id="messages" showDetail="false"/>
+
+
+        </h:form>  
     </h:body>
 </html>
 
